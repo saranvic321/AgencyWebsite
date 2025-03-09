@@ -179,80 +179,95 @@ document.addEventListener("DOMContentLoaded", function () {
         const menuFrame = document.querySelector('.mil-menu-frame');
         const btnFrame = document.querySelector('.mil-buttons-tp-frame');
         const tp2 = document.querySelector('.mil-top-panel-2');
-
+    
+        // Toggle Menu
         if (menuBtn) {
             menuBtn.classList.toggle('mil-active');
             menuFrame.classList.toggle('mil-active');
             btnFrame.classList.toggle('mil-active');
             tp2.classList.toggle('mil-menu-open');
-        } else if (event.target.closest('.mil-menu-frame') && !event.target.closest('.mil-menu-frame > *')) {
-            menuFrame.classList.remove('mil-active');
-            btnFrame.classList.remove('mil-active');
-            document.querySelector('.mil-menu-btn').classList.remove('mil-active');
-            tp2.classList.remove('mil-menu-open');
+        } 
+        // Close menu if clicked outside
+        else if (!event.target.closest('.mil-menu-frame') && menuFrame.classList.contains('mil-active')) {
+            closeMenu();
         }
     });
-
+    
+    // Function to close the menu
+    function closeMenu() {
+        document.querySelector('.mil-menu-btn').classList.remove('mil-active');
+        document.querySelector('.mil-menu-frame').classList.remove('mil-active');
+        document.querySelector('.mil-buttons-tp-frame').classList.remove('mil-active');
+        document.querySelector('.mil-top-panel-2').classList.remove('mil-menu-open');
+    }
+    
+    // Handle menu link clicks
     document.querySelectorAll('.mil-main-menu li a').forEach(link => {
         link.addEventListener('click', function (event) {
             const href = this.getAttribute('href');
-
+    
             if (isValidHref(href)) {
-                document.querySelector('.mil-menu-btn').classList.remove('mil-active');
-                document.querySelector('.mil-menu-frame').classList.remove('mil-active');
-                document.querySelector('.mil-buttons-tp-frame').classList.remove('mil-active');
-                document.querySelector('.mil-top-panel-2').classList.remove('mil-menu-open');
+                closeMenu();
             } else {
                 event.preventDefault();
             }
         });
     });
-
+    
+    // Validate link href
     function isValidHref(href) {
         return href && href.trim() !== '' && href.length > 1 && !/^#(\.|$)/.test(href);
     }
-
+    
+    // Handle dropdowns
     document.querySelectorAll('.mil-has-children > a').forEach(link => {
         link.addEventListener('click', function (event) {
-            event.stopPropagation();
-            event.preventDefault(); // Додаємо, щоб уникнути переходу за посиланням
-
             const parentElement = link.parentElement;
             const isActive = parentElement.classList.contains('mil-active');
-
-            document.querySelectorAll('.mil-has-children').forEach(el => {
-                const ul = el.querySelector('ul');
-                el.classList.remove('mil-active');
-                if (ul) ul.style.maxHeight = '0';
-            });
-
-            if (!isActive) {
-                parentElement.classList.add('mil-active');
-                const ul = parentElement.querySelector('ul');
-                if (ul) ul.style.maxHeight = `${ul.scrollHeight}px`;
+            const hasSubmenu = parentElement.querySelector('ul');
+    
+            if (hasSubmenu) {
+                event.stopPropagation();
+                event.preventDefault(); // Only prevent default if there is a submenu
+    
+                // Collapse all dropdowns
+                document.querySelectorAll('.mil-has-children').forEach(el => {
+                    const ul = el.querySelector('ul');
+                    el.classList.remove('mil-active');
+                    if (ul) ul.style.maxHeight = '0';
+                });
+    
+                // Expand the clicked dropdown if not active
+                if (!isActive) {
+                    parentElement.classList.add('mil-active');
+                    const ul = parentElement.querySelector('ul');
+                    if (ul) ul.style.maxHeight = `${ul.scrollHeight}px`;
+                }
             }
         });
     });
-
+    
+    // Handle top panel scroll behavior
     let lastScrollTop = 0;
-
+    
     window.addEventListener('scroll', () => {
         const topPanel = document.querySelector('.mil-top-panel-2');
         const menuFrame = document.querySelector('.mil-menu-frame-2');
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
+    
         if (menuFrame.classList.contains('mil-active')) {
             return; // Stop execution if .mil-active class is present
         }
-
+    
         if (scrollTop > lastScrollTop) {
             topPanel.classList.add('mil-scroll');
         } else if (scrollTop < lastScrollTop && scrollTop === 0) {
             topPanel.classList.remove('mil-scroll');
         }
-
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    
+        lastScrollTop = Math.max(0, scrollTop);
     });
+    
 
 
     /* -------------------------------------------
