@@ -3532,7 +3532,6 @@ half container
 ------------------------------------------- */
 .mil-half-container {
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 .mil-half-container .mil-text-box {
