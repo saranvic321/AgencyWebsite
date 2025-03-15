@@ -99,7 +99,7 @@ body {
   color: #808080;
   font-weight: 300;
   font-size: 14px;
-  background-color: #ECECEA;
+  background-color: #ffffff;
 }
 
 .mil-page-wrapper {
@@ -2533,7 +2533,7 @@ top panel
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: #353639;
+  background-color:transparent;
   text-align: center;
   color: #ECECEA;
   -webkit-filter: drop-shadow(0px 0px 4px rgba(53, 54, 57, 0.1));
@@ -2664,7 +2664,7 @@ top panel
   }
   .mil-top-panel .mil-buttons-tp-frame {
     padding: 0;
-    background-color: #353639;
+    background-color: transparent;
     border-radius: 70px;
     padding: 0 15px;
   }
