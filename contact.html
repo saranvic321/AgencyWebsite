@@ -19,6 +19,24 @@
     <link rel="icon" type="image/png" href="img/team/1.jpg">
     <!-- page title -->
     <title>PixoDesigns</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const titles = [
+                "PixoDesigns - UI/UX Experts",
+                "PixoDesigns - Elevating Experiences",
+                "PixoDesigns - Your Design Partner",
+                "PixoDesigns - Crafting Perfection"
+            ];
+             let index = 0;
+    
+            function changeTitle() {
+                document.title = titles[index];
+                index = (index + 1) % titles.length;
+            }
+            setInterval(changeTitle, 2000);
+        });
+
+    </script>
 
 </head>
 

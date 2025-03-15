@@ -18,8 +18,25 @@
     <!-- Fav icon -->
     <link rel="icon" type="image/png" href="img/team/1.jpg">
     <!-- page title -->
-    <title>Pixy</title>
+    <title>PixoDesigns</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const titles = [
+                "PixoDesigns - UI/UX Experts",
+                "PixoDesigns - Elevating Experiences",
+                "PixoDesigns - Your Design Partner",
+                "PixoDesigns - Crafting Perfection"
+            ];
+             let index = 0;
+    
+            function changeTitle() {
+                document.title = titles[index];
+                index = (index + 1) % titles.length;
+            }
+            setInterval(changeTitle, 2000);
+        });
 
+    </script>
 </head>
 
 <body>
@@ -68,7 +85,7 @@
                 <div class="mil-buttons-tp-frame mil-c-gone">
                     <p class="mil-stylized mil-m1 mil-phone"><span class="mil-m2">Phone:</span> +91 7094741474</p>
                     <div class="mil-buttons">
-                        <a href="contact-frl.html" class="mil-tp-btn"><i class="fal fa-envelope"></i></a>
+                        <a href="contact.html" class="mil-tp-btn"><i class="fal fa-envelope"></i></a>
                         <div class="mil-tp-btn">
                             <div class="mil-menu-btn"><span></span></div>
                         </div>
