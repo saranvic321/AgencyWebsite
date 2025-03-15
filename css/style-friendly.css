@@ -956,6 +956,9 @@ breadcrumbs
   margin: 0 15px;
 }
 .mil-breadcrumbs li a {
+  pointer-events: auto;  /* Ensure links are clickable */
+  text-decoration: none; /* Optional: remove underline */
+  color: inherit; /* Keeps the theme color */
   width: 100%;
   text-transform: uppercase;
   line-height: 100%;
@@ -965,6 +968,9 @@ breadcrumbs
   color: #808080;
 }
 .mil-breadcrumbs li a:hover {
+  pointer-events: auto;  /* Ensure links are clickable */
+  text-decoration: none; /* Optional: remove underline */
+  color: inherit; /* Keeps the theme color */
   color: #353639;
 }
 .mil-breadcrumbs li:last-child {
