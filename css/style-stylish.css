@@ -99,7 +99,7 @@ body {
   color: rgba(210, 210, 208, 0.6);
   font-weight: 300;
   font-size: 14px;
-  background-color: #ffffff;
+  background-color: #000000;
 }
 
 .mil-page-wrapper {
@@ -956,9 +956,6 @@ breadcrumbs
   margin: 0 15px;
 }
 .mil-breadcrumbs li a {
-  pointer-events: auto;  /* Ensure links are clickable */
-  text-decoration: none; /* Optional: remove underline */
-  color: inherit; /* Keeps the theme color */
   width: 100%;
   text-transform: uppercase;
   line-height: 100%;
@@ -2968,7 +2965,7 @@ menu window
 .mil-menu-frame .mil-menu-window .mil-menu-section {
   border-top: solid 1px #181817;
   padding: 60px;
-  height: 600px;
+  height: calc(100vh - 590px);
   overflow-y: scroll;
 }
 .mil-menu-frame .mil-menu-window .mil-blog-section {
