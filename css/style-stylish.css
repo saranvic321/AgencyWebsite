@@ -2966,6 +2966,7 @@ menu window
   border-top: solid 1px #181817;
   padding: 60px;
   height: calc(100vh - 590px);
+  height: 600px;
   overflow-y: scroll;
 }
 .mil-menu-frame .mil-menu-window .mil-blog-section {
