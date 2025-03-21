@@ -2389,6 +2389,7 @@ circle text
           transform: scale(1.5);
 }
 .mil-circle-text-frame .mil-circle-text svg text {
+  font-size: 26px;
   fill: #353639;
 }
 .mil-circle-text-frame .mil-circle-text .mil-arrow {
