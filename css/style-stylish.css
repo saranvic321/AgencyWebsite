@@ -4932,8 +4932,8 @@ partners
 ------------------------------------------- */
 .mil-partner {
   display: block;
-  padding: 60px;
-  height: 200px;
+  padding: 80px;
+  height: 300px;
   background-color: #181817;
   width: 100%;
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
