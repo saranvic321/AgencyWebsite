@@ -179,7 +179,7 @@
                                 <h2 class="mil-display3 mil-rubber mil-mb60 mil-m4 mil-up">
                                     let's <span class="mil-a1">talk</span>
                                 </h2>
-                                <form id="contactForm">
+                                <form id="contactForm" action="connect.php" method="post">
                                     <div class="row mil-aic">
                                         <div class="col-md-6 mil-mb30 mil-up">
                                             <input type="text" id="name" placeholder="What's your name" required>
@@ -205,7 +205,7 @@
                                 </form>
                                 <p id="successMessage" style="
                                     display: none;
-                                    color: green;
+                                    color: rgb(255, 255, 255);
                                     font-size: 16px;
                                     margin-top: 10px;
                                     font-weight: bold;
@@ -215,13 +215,12 @@
                                     opacity: 0;
                                     transition: opacity 1s ease-in-out;
                                 ">
-                                    ✅ We will get back to you as soon as possible. <br> 
-                                    Until then, visit our portfolio!
+                                    We will get back to you as soon as possible.
                                 </p>
                             </div>
                             <div class="mil-image-box mil-c-gone">
                                 <div class="mil-image-frame">
-                                    <img src="img/logo9.png" class="img-fluid">
+                                    <img src="img/Contactus.jpg" class="img-fluid">
                                     <div class="mil-overlay"></div>
                                 </div>
                             </div>
@@ -248,8 +247,10 @@
                                             <li><a href="services.html" class="mil-c-gone">Our Services</a></li>
                                             <li><a href="portfolio.html" class="mil-c-gone">Our Projects</a></li>
                                             <li><a href="team.html" class="mil-c-gone">Our Team</a></li>
+                                            <li><a href="/files/PIXO_Brand identity guidelines.pdf" target="_blank">Our Brand Guidelines</a></li>
                                             <!-- <li><a href="blog.html" class="mil-c-gone">Blog</a></li> -->
                                             <li><a href="contact.html" class="mil-c-gone">Contact</a></li>
+                                            
                                         </ul>
                                         <ul class="mil-social mil-c-gone">
                                 <li><a href="https://www.behance.net/saransankar1" target="_blank" data-no-swup><i class="fab fa-behance"></i></a></li>
@@ -339,7 +340,7 @@
                             successMessage.style.display = "none"; // Fully hide it after fade-out
                         }, 1500);
                     }, 10000); // Stays visible for 10 seconds
-                }, 2000); // Appears after 2 seconds delay
+                }, 1000); // Appears after 2 seconds delay
             }
         });
         </script>
