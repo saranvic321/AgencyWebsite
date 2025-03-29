@@ -726,7 +726,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     document.querySelector('.mil-buttons-tp-frame').classList.remove('mil-active');
                     document.querySelector('.mil-top-panel-2').classList.remove('mil-menu-open');
                 } else {
-                    event.preventDefault(); // Якщо href невалідний, зупиняємо дію за замовчуванням
+                    event.preventDefault(); 
                 }
             });
         });
@@ -738,7 +738,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll('.mil-has-children > a').forEach(link => {
             link.addEventListener('click', function (event) {
                 event.stopPropagation();
-                event.preventDefault(); // Додаємо, щоб уникнути переходу за посиланням
+                event.preventDefault(); 
 
                 const parentElement = link.parentElement;
                 const isActive = parentElement.classList.contains('mil-active');
