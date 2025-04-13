@@ -1,42 +1,34 @@
 <?php
-// Database connection settings
+// Connection variables
 $servername = "localhost";
-$username = "root"; // Use your DB username
-$password = "";     // Use your DB password
-$dbname = "contactformdata";
+$username = "root"; // default for XAMPP
+$password = ""; // default is no password in XAMPP
+$database = "contactformdata";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $database);
 
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Get data from form (POST method)
+// Get values from form
 $name = $_POST['name'];
 $email = $_POST['email'];
 $phone = $_POST['phone'];
 $message = $_POST['message'];
 
-// Simple validation (optional)
-if (empty($name) || empty($email) || empty($message)) {
-    echo "Please fill in all required fields.";
-    exit;
-}
+// Insert into table
+$sql = "INSERT INTO contactformdata (name, email, phone, message, submitted_at) 
+        VALUES ('$name', '$email', '$phone', '$message', NOW())";
 
-// Prepare and bind
-$stmt = $conn->prepare("INSERT INTO submissions (name, email, phone, message) VALUES (?, ?, ?, ?)");
-$stmt->bind_param("ssss", $name, $email, $phone, $message);
-
-// Execute the statement
-if ($stmt->execute()) {
+if ($conn->query($sql) === TRUE) {
     echo "Message submitted successfully!";
 } else {
-    echo "Error: " . $stmt->error;
+    echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-// Close connections
-$stmt->close();
+// Close connection
 $conn->close();
 ?>
