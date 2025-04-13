@@ -179,26 +179,22 @@
                                 <h2 class="mil-display3 mil-rubber mil-mb60 mil-m4 mil-up">
                                     let's <span class="mil-a1">talk</span>
                                 </h2>
-                                <form method="POST" action="https://script.google.com/macros/s/AKfycbywc-aNE47fQagWJMgkhZO4vvXyYFXmLhfU1WWGML9dhKpMwdT6hQTgVGicdGK5XvK7Gg/exec">
+                                <form id="contactForm" action="connect.php" method="post">
                                     <div class="row mil-aic">
                                         <div class="col-md-6 mil-mb30 mil-up">
-                                            <label for="name" class="mil-hidden-label"></label>
-                                            <input type="text" id="name" name="name" placeholder="What's your name" required autocomplete="name">
+                                            <input type="text" id="name" placeholder="What's your name" required>
                                             <small class="error-message"></small>
                                         </div>
                                         <div class="col-md-6 mil-mb30 mil-up">
-                                            <label for="email" class="mil-hidden-label"></label>
-                                            <input type="email" id="email" name="email" placeholder="Your Email" required autocomplete="email">
+                                            <input type="email" id="email" placeholder="Your Email" required>
                                             <small class="error-message"></small>
                                         </div>
                                         <div class="col-md-12 mil-mb30 mil-up">
-                                            <label for="phone" class="mil-hidden-label"></label>
-                                            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required autocomplete="tel">
+                                            <input type="number" id="phone" placeholder="Your Phone Number" required>
                                             <small class="error-message"></small>
                                         </div>
                                         <div class="col-md-12 mil-mb30 mil-up">
-                                            <label for="message" class="mil-hidden-label"></label>
-                                            <textarea id="message" name="message" placeholder="Tell us about your project" required></textarea>
+                                            <textarea id="message" placeholder="Tell us about your project" required></textarea>
                                             <small class="error-message"></small>
                                         </div>
                                         <div class="col-md-6 mil-mb30">
@@ -351,45 +347,6 @@
             }
         });
         </script>
-        <script>
-            document.getElementById("contactForm").addEventListener("submit", function (e) {
-                const successMsg = document.getElementById("successMessage");
-                successMsg.style.display = "block";
-                setTimeout(() => {
-                    successMsg.style.opacity = "5";
-                }, 100);
-            });
-        </script>
-       <script>
-        const form = document.getElementById("contact-form");
-        const successMsg = document.getElementById("success-message");
-      
-        form.addEventListener("submit", function (e) {
-          e.preventDefault();
-      
-          fetch("https://script.google.com/macros/s/AKfycbywc-aNE47fQagWJMgkhZO4vvXyYFXmLhfU1WWGML9dhKpMwdT6hQTgVGicdGK5XvK7Gg/exec", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              name: form.name.value,
-              email: form.email.value,
-              phone: form.phone.value,
-              message: form.message.value,
-            }),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              console.log("Success:", data);
-              form.reset();
-              successMsg.style.display = "block";
-            })
-            .catch((err) => {
-              console.error("Error:", err);
-            });
-        });
-      </script>
 </body>
 
 </html>
