@@ -179,7 +179,7 @@
                                 <h2 class="mil-display3 mil-rubber mil-mb60 mil-m4 mil-up">
                                     let's <span class="mil-a1">talk</span>
                                 </h2>
-                                <form id="contactForm" action="connect.php" method="post">
+                                <form id="contactForm" >
                                     <div class="row mil-aic">
                                         <div class="col-md-6 mil-mb30 mil-up">
                                             <input type="text" id="name" placeholder="What's your name" required>
@@ -231,6 +231,61 @@
                         </div>
                     </div>
                     <!-- contact form end -->
+                    <!-- <form id="contactForm">
+                        <div class="row mil-aic">
+                            <div class="col-md-6 mil-mb30 mil-up">
+                                <input type="text" id="name" name="name" placeholder="What's your name" required>
+                            </div>
+                            <div class="col-md-6 mil-mb30 mil-up">
+                                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="col-md-12 mil-mb30 mil-up">
+                                <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
+                            </div>
+                            <div class="col-md-12 mil-mb30 mil-up">
+                                <textarea id="message" name="message" placeholder="Tell us about your project" required></textarea>
+                            </div>
+                            <div class="col-md-6 mil-mb30">
+                                <p class="mil-text-sm mil-up">*We promise not to disclose your personal information.</p>
+                            </div>
+                            <div class="col-md-6 mil-mb30 mil-jce mil-768-jcc mil-up">
+                                <button type="submit" class="mil-btn mil-a2 mil-c-gone">Send message</button>
+                            </div>
+                        </div>
+                    </form> -->
+                    
+                    <!-- <p id="successMessage" style="display:none; text-align:center; color:white; font-weight:bold;">
+                        We will get back to you as soon as possible.
+                    </p> -->
+                    
+                    <script>
+                        document.getElementById("contactForm").addEventListener("submit", function (e) {
+                            e.preventDefault();
+                            const formData = {
+                                name: document.getElementById("name").value,
+                                email: document.getElementById("email").value,
+                                phone: document.getElementById("phone").value,
+                                message: document.getElementById("message").value
+                            };
+                    
+                            fetch("https://script.google.com/macros/s/AKfycbxsDIIf_71MfV-V78d389Ip64pYFB2nVP2Dht0aTSJXcbeC6bkDMezRaxywBmlDLWi3ig/exec", {
+                                method: "POST",
+                                body: JSON.stringify(formData),
+                                headers: { "Content-Type": "application/json" }
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.result === "success") {
+                                    document.getElementById("contactForm").reset();
+                                    const msg = document.getElementById("successMessage");
+                                    msg.style.display = "block";
+                                    msg.style.opacity = "1";
+                                }
+                            })
+                            .catch(error => console.error("Error!", error.message));
+                        });
+                    </script>
+                    
 
                     <!-- footer -->
                     <footer class="mil-footer mil-p-160-160">
@@ -346,7 +401,7 @@
                 }, 1000); // Appears after 2 seconds delay
             }
         });
-        </script>
+    </script>
 </body>
 
 </html>
