@@ -294,48 +294,6 @@
                                             message.nextElementSibling.textContent = "Message cannot be empty.";
                                             isValid = false;
                                         }
-                                    
-                                        if (isValid) {
-                                            const formData = {
-                                                name: name.value,
-                                                email: email.value,
-                                                phone: phone.value,
-                                                message: message.value
-                                            };
-                                    
-                                            fetch("https://script.google.com/macros/s/AKfycbwtQ7GNI-CfbGegtWnLL96J9MgXYthnom_L3QGYw08dGV5q0UYQ6Yx8C5_OugJPDgMmYg/exec", {
-                                                method: "POST",
-                                                body: JSON.stringify(formData),
-                                                headers: {
-                                                    "Content-Type": "application/json"
-                                                }
-                                            })
-                                            .then(response => response.json())
-                                            .then(data => {
-                                                if (data.result === "success") {
-                                                    // Reset form
-                                                    document.getElementById("contactForm").reset();
-                                    
-                                                    // Show success message
-                                                    successMessage.style.display = "block";
-                                                    setTimeout(() => {
-                                                        successMessage.style.opacity = "1";
-                                                    }, 50);
-                                    
-                                                    setTimeout(() => {
-                                                        successMessage.style.opacity = "0";
-                                                        setTimeout(() => {
-                                                            successMessage.style.display = "none";
-                                                        }, 1500);
-                                                    }, 10000);
-                                                } else {
-                                                    console.error("Failed to store data:", data);
-                                                }
-                                            })
-                                            .catch(error => {
-                                                console.error("Error during fetch:", error);
-                                            });
-                                        }
                                     });
                                 </script>
                                 
