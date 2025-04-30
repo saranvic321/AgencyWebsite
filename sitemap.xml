@@ -1,22 +1,30 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset 
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
     <loc>https://pixodesigns.in/</loc>
+    <priority>1.0</priority>
   </url>
-  <url>
-    <loc>https://pixodesigns.in/about.html</loc>
-  </url>
+
   <url>
     <loc>https://pixodesigns.in/services.html</loc>
+    <priority>0.8</priority>
   </url>
+
   <url>
     <loc>https://pixodesigns.in/portfolio.html</loc>
+    <priority>0.8</priority>
   </url>
+
   <url>
     <loc>https://pixodesigns.in/team.html</loc>
+    <priority>0.6</priority>
   </url>
+
   <url>
     <loc>https://pixodesigns.in/contact.html</loc>
+    <priority>0.6</priority>
   </url>
+
 </urlset>
-<!-- This is a simple XML sitemap for a website. It includes the main pages of the site, such as the homepage, about page, services page, portfolio page, team page, and contact page. Each URL is wrapped in <url> tags and contains a <loc> tag with the full URL of the page. The sitemap is enclosed in a <urlset> tag with the appropriate XML namespace. -->
-<!-- The sitemap is designed to help search engines crawl and index the website's pages more effectively. It is a useful tool for improving SEO and ensuring that all important pages are discoverable by search engines. -->
